@@ -56,6 +56,8 @@ def get_user_lang(user_id):
 def is_command(text):
     return text.startswith("/")
 
+from config import ADMIN_IDS
+
 async def save_user_message(message: types.Message, lang: str, bot):
     info = (
         f"🆔 {message.from_user.id}\n"
@@ -64,6 +66,7 @@ async def save_user_message(message: types.Message, lang: str, bot):
     )
     for admin_id in ADMIN_IDS:
         await bot.send_message(admin_id, info)
+
 
 
 async def broadcast_message(bot, text):
