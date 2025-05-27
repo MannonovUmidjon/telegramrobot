@@ -55,3 +55,8 @@ async def broadcast(message: types.Message):
         return await message.reply("Xabar matnini kiriting.")
     await broadcast_message(bot, msg[1])
     await message.reply("Xabar barcha foydalanuvchilarga yuborildi.")
+
+    if __name__ == "__main__":
+    from aiogram import executor
+    print("Bot ishlayapti...")
+    executor.start_polling(dp, skip_updates=True)
