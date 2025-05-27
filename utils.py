@@ -57,9 +57,13 @@ def is_command(text):
     return text.startswith("/")
 
 async def save_user_message(message: types.Message, lang: str, bot):
-    info = f"🆔 {message.from_user.id}
-👤 @{message.from_user.username}
-🗣 {message.text}"
+    info = (
+        f"🆔 {message.from_user.id}
+"
+        f"👤 @{message.from_user.username}
+"
+        f"🗣 {message.text}"
+    )
     for admin_id in ADMIN_IDS:
         await bot.send_message(admin_id, info)
 
