@@ -58,14 +58,13 @@ def is_command(text):
 
 async def save_user_message(message: types.Message, lang: str, bot):
     info = (
-        f"🆔 {message.from_user.id}
-"
-        f"👤 @{message.from_user.username}
-"
+        f"🆔 {message.from_user.id}\n"
+        f"👤 @{message.from_user.username}\n"
         f"🗣 {message.text}"
     )
     for admin_id in ADMIN_IDS:
         await bot.send_message(admin_id, info)
+
 
 async def broadcast_message(bot, text):
     for user_id in user_langs:
